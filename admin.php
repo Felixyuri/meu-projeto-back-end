@@ -2,9 +2,11 @@
 
 class Admin {
     
-    public function home($dados) {
+    public function getCurrentContent() {
         require_once('connection.php');
-		$conn = Database::connectionPDO(); 
+		$conn = Database::connectionPDO();
+
+        $dados = json_decode(file_get_contents('https://www.ibridge.com.br/dados.json'), true);
 
         // query para buscar as informaçoes gerais do banco;
         $query_geral = "SELECT data FROM tb_dados_gerais";
