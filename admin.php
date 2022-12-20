@@ -6,6 +6,7 @@ ini_set(“display_errors”, 0 );
 class Admin {
     
     public function getCurrentContent() {
+        echo('123');
         require_once('connection.php');
 		$conn = Database::connectionPDO();
 
