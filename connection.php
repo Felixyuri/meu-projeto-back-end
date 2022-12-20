@@ -6,15 +6,16 @@ class Database
     
     private function __construct()
     {
-        $db_host = "localhost";
+        $db_host = "containers-us-west-172.railway.app";
         $db_user = "root";
-        $db_password = '';
+        $db_password = 'uwTpMIonfjY7apl02DEE';
         $db_name = "painel";
-        $db_driver = "mysql";
+        
         $options = array( PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION );
 
         try
         {
+            self::$db = new PDO('mysql:host='.$db_host.'; port=5835; dbname='.$db_name,$db_username,$db_password);
             self::$db = new PDO("$db_driver:host=$db_host; dbname=$db_name", $db_user, $db_password, $options);
             self::$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
